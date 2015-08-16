@@ -1,10 +1,10 @@
 ---
-title: "Assignment Week 2 "
+title: "Assignment Week 2"
 author: "Stefan H."
 date: "August 15, 2015"
-output: html_document
-keep_md: true
-
+output: 
+  html_document: 
+    keep_md: yes
 ---
 
 ## Loading and preprocessing the data
@@ -12,7 +12,10 @@ keep_md: true
 ### Load data and convert date format
 
 ```{r}
-Activity <- read.csv(file = "./data/activity.csv")
+if(!file.exists('activity.csv')){
+     unzip('activity.zip')
+}
+Activity<-read.csv('activity.csv')
 Activity$date <- as.Date(Activity$date)
 str (Activity)
 ```
